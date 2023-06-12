@@ -25,3 +25,6 @@ export const TWILIGIO_AUTH_TOKEN = process.env.TWILIGIO_AUTH_TOKEN
 export const FROM_NUMBER = process.env.FROM_NUMBER
 export const TO_NUMBER = process.env.TO_NUMBER
 export const APP_LOOP_INTERVAL = Number(process.env.APP_LOOP_INTERVAL ?? 5000)
+export const LOGS_DIR = './logs'
+export const TOKENS_FILE_PATH = './src/assets/tokens.json'
+export const PANCAKE_ROUTER_ABI_PATH = './src/assets/abis/pancakeswap-router-abi.json'
