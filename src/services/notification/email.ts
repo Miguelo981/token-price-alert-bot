@@ -9,24 +9,21 @@ const configOptions: SMTPTransport.Options = {
   auth: {
     user: SMPT_USER,
     pass: SMPT_PASS,
-  },
-  from: FROM_EMAIL,
-  to: TO_EMAIL,
-  subject: EMAIL_SUBJECT,
+  }
 }
-
 
 export async function sendMessage(message: string) {
   const transporter = createTransport(configOptions)
   const res = await transporter.sendMail({
+    from: FROM_EMAIL,
+    to: TO_EMAIL,
+    subject: EMAIL_SUBJECT,
     text: message,
   });
 
   if (res.rejected.length > 0) {
     throw new Error(`Email rejected: ${res.rejected}`)
   }
-
-  console.log(res)
 
   return res
 }
