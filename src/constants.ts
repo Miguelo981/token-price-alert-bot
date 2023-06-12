@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { JsonRpcProvider } from 'ethers'
-import { TokenAddress } from './types/types.js'
+import type { TokenAddress } from './types/types.js'
 dotenv.config()
 
 export const BSCCAN_HOST = 'https://api.bscscan.com/api'
