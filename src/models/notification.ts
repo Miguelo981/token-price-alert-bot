@@ -19,7 +19,16 @@ export const NotificationServices: NotificationServices = {
 }
 
 export const NotificationClients = [
-  initTwilioClient,
-  initDiscordClient,
-  initBot,
+  {
+    name: 'sms', //twilio
+    init: initTwilioClient,
+  },
+  {
+    name: 'discord',
+    init: initDiscordClient,
+  },
+  {
+    name: 'telegram',
+    init: initBot,
+  }
 ]

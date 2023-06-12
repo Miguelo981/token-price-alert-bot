@@ -1,7 +1,8 @@
-import { startBot } from "./bot/index.js"
-import { initClient } from "./services/notification/discord.js"
+import { startBot, startClients } from "./bot/index.js"
+import { APP_LOOP_INTERVAL } from "./constants.js";
 
 (async () => {
-  await initClient()
-  startBot()
+  await startClients()
+  
+  setInterval(startBot, APP_LOOP_INTERVAL);
 })()

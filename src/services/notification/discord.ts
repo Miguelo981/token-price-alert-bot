@@ -20,11 +20,7 @@ export async function initClient() {
   })
 
   await new Promise((resolve) => {
-    client.on("ready", () => {
-      console.log(`Logged in as ${client.user.tag}!`)
-      resolve(null)
-    })
-
+    client.on("ready", resolve)
     client.login(DISCORD_BOT_TOKEN)
   })
 }
