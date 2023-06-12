@@ -15,7 +15,11 @@ export async function startBot() {
     if (ConditionAlert[token.condition](price, token.value_in_usd)) {
       const msg = `Price of ${token.address} is ${token.condition} ${token.value_in_usd}`
       console.log(msg)
-      NotificationServices[token.notification_types[0]](msg)
+
+      for (const type of token.notification_types) {
+        await NotificationServices[type](msg)
+      }
+
     }
   }
 }
