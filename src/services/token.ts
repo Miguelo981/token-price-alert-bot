@@ -33,3 +33,24 @@ export async function calcSellBSC(tokenInAddress: TokenAddress, pancakeswapABI: 
 
     return Number(price)
 }
+
+export async function getSymbol(tokenAddress: TokenAddress): Promise<string> {
+    const tokenContract = new Contract(tokenAddress, [
+      {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },], BSC_PROVIDER)
+    
+    return tokenContract.symbol()
+}
