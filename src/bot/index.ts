@@ -1,10 +1,11 @@
 import { InterfaceAbi, isAddress } from "ethers";
 import { readFile } from "fs/promises";
-import { USDTokenAddress } from "../constants.js";
+import { PANCAKE_ROUTER_ABI_PATH, TOKENS_FILE_PATH, USDTokenAddress } from "../constants.js";
 import { NotificationClients, NotificationServices } from "../models/notification.js";
 import { TokenAlert, ConditionAlert } from "../models/token.js";
 import { calcSellBSC, getSymbol } from "../services/token.js";
 import { logger } from "../logger.js";
+import { existsSync } from "fs";
 
 export async function startClients() {
   logger.info('|--- Starting clients ---|')
@@ -20,8 +21,19 @@ export async function startClients() {
 }
 
 export async function startBot() {
-  const PANCAKE_ROUTER_ABI: InterfaceAbi = JSON.parse(await readFile('./assets/abis/pancakeswap-router-abi.json') as any);
-  const tokens: TokenAlert[] = JSON.parse(await readFile('./src/assets/tokens.json') as any);
+  if (!existsSync(PANCAKE_ROUTER_ABI_PATH)) {
+    logger.error('Pancake Router ABI file not found.')
+    process.exit(1)
+  }
+
+  const PANCAKE_ROUTER_ABI: InterfaceAbi = JSON.parse(await readFile(PANCAKE_ROUTER_ABI_PATH) as any);
+  
+  if (!existsSync(TOKENS_FILE_PATH)) {
+    logger.error('Tokens file not found.')
+    process.exit(1)
+  }
+
+  const tokens: TokenAlert[] = JSON.parse(await readFile(TOKENS_FILE_PATH) as any);
   
   logger.info('|--- Bot started ---|')
 
