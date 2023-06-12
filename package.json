@@ -10,10 +10,8 @@
   "scripts": {
     "tsc": "tsc -p tsconfig.json",
     "dev": "ts-node -r tsconfig-paths/register src/main.ts",
-    "cli": "ts-node --esm src/main.ts",
-    "start": "npm run build && node build/index.js",
+    "start": "npm run build && node build/main.js",
     "clean": "rimraf coverage build tmp",
-    "prebuild": "npm run lint",
     "dev:watch": "tsc -p tsconfig.json && node build/src/index.js",
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -w -p tsconfig.json",
@@ -57,6 +55,7 @@
     "node-fetch": "^3.3.1",
     "node-telegram-bot-api": "^0.61.0",
     "nodemailer": "^6.9.3",
-    "twilio": "^4.11.2"
+    "twilio": "^4.11.2",
+    "winston": "^3.9.0"
   }
 }
