@@ -1,4 +1,5 @@
 import { sendChannelMessage } from "../services/notification/discord.js";
+import { sendMessage } from "../services/notification/email.js";
 import { NotificationType } from "../types/types.js";
 
 type NotificationServices = {
@@ -7,7 +8,7 @@ type NotificationServices = {
 
 export const NotificationServices: NotificationServices = {
   sms: () => console.log('sms'),
-  email: () => console.log('email'),
+  email: () => sendMessage,
   discord: sendChannelMessage,
   telegram: () => console.log('telegram'),
   slack: () => console.log('slack'),
