@@ -20,3 +20,7 @@ export const TO_EMAIL = process.env.TO_EMAIL
 export const EMAIL_SUBJECT = process.env.EMAIL_SUBJECT
 export const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
 export const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID
+export const TWILIGIO_ACCOUNT_SID = process.env.TWILIGIO_ACCOUNT_SID
+export const TWILIGIO_AUTH_TOKEN = process.env.TWILIGIO_AUTH_TOKEN
+export const FROM_NUMBER = process.env.FROM_NUMBER
+export const TO_NUMBER = process.env.TO_NUMBER
