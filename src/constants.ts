@@ -18,3 +18,5 @@ export const SMPT_PASS = process.env.SMPT_PASS
 export const FROM_EMAIL = process.env.FROM_EMAIL
 export const TO_EMAIL = process.env.TO_EMAIL
 export const EMAIL_SUBJECT = process.env.EMAIL_SUBJECT
+export const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
+export const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID
